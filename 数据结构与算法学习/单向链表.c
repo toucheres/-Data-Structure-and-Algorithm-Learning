@@ -160,18 +160,18 @@ list* findone(list* head, E tele)
 	return NULL;
 }
 
-int main()
-{
-	list* head = initlist();
-
-	//printlist(head);
-
-	pushback(head, 3);
-	pushback(head, 4);
-	pushback(head, 5);
-	pushhead(head, 8);
-	//printf("%p", findone(head,7));
-
-
-	return 0;
-}
+//int main()
+//{
+//	list* head = initlist();
+//
+//	//printlist(head);
+//
+//	pushback(head, 3);
+//	pushback(head, 4);
+//	pushback(head, 5);
+//	pushhead(head, 8);
+//	//printf("%p", findone(head,7));
+//
+//
+//	return 0;
+//}

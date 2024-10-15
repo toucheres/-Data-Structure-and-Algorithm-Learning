@@ -21,5 +21,8 @@
     <ClCompile Include="双向链表.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="queue.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
