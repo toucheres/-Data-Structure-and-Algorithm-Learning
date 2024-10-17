@@ -24,5 +24,19 @@
     <ClCompile Include="通过顺序表实现queue.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="通过链表实现queue.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="练习题1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="练习题2.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="单向链表.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
