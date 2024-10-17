@@ -1,22 +1,24 @@
-#include<stdio.h>
-#include<stdlib.h>
-#define E int
+#include"µ¥ÏòÁ´±í.h"
+//#include<stdio.h>
+//#include<stdlib.h>
+//#define E int
+//
+//typedef struct List
+//{
+//	struct List* last;
+//	struct List* next;
+//	E  ele;
+//
+//}list;
 
-typedef struct List
+list* initlist(list** phead)
 {
-	struct List* last;
-	struct List* next;
-	E  ele;
-
-}list;
-
-list* initlist()
-{
-	list* head = malloc(sizeof(list));
-	head->ele = 0;
-	head->next = NULL;
-	head->last = NULL;
-	return head;
+	
+	(*phead) = malloc(sizeof(list));
+	(*phead)->ele = 0;
+	(*phead)->next = NULL;
+	(*phead)->last = NULL;
+	return (*phead);
 }
 
 void printlist(list* head)

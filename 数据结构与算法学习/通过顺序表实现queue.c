@@ -80,20 +80,20 @@ void printque(queue que)
 	printf("¥Ú”°ÕÍ≥…\n");
 }
 
-int main()
-{
-	struct Queue q;
-	initqueue(&q, 5);
-	for (int i = 0; i < 15; i++)
-	{
-		pushque(&q, i);
-	}
-	printque(&q);
-	for (int i = 0; i < 3; i++)
-	{
-		popque(&q);
-	}
-	printque(&q);
-	pushque(&q, 2334);
-	printque(&q);
-}
+//int main()
+//{
+//	struct Queue q;
+//	initqueue(&q, 5);
+//	for (int i = 0; i < 15; i++)
+//	{
+//		pushque(&q, i);
+//	}
+//	printque(&q);
+//	for (int i = 0; i < 3; i++)
+//	{
+//		popque(&q);
+//	}
+//	printque(&q);
+//	pushque(&q, 2334);
+//	printque(&q);
+//}
