@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="queue.c" />
+    <ClCompile Include="通过顺序表实现queue.c" />
     <ClCompile Include="单向链表.c" />
     <ClCompile Include="双向链表.c" />
   </ItemGroup>
