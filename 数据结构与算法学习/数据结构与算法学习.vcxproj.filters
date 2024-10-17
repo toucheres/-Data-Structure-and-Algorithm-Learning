@@ -33,6 +33,9 @@
     <ClCompile Include="练习题2.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="练习题3.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="单向链表.h">
