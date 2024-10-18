@@ -3,25 +3,25 @@
 //#include<stdlib.h>
 //#define E int
 //
-//typedef struct List
+//typedef struct struct ListNode
 //{
-//	struct List* last;
-//	struct List* next;
-//	E  ele;
+//	struct struct ListNode* last;
+//	struct struct ListNode* next;
+//	E  val;
 //
-//}list;
+//}struct ListNode;
 
-list* initlist(list** phead)
+struct ListNode* initListNode(struct ListNode** phead)
 {
 	
-	(*phead) = malloc(sizeof(list));
-	(*phead)->ele = 0;
+	(*phead) = malloc(sizeof(struct ListNode));
+	(*phead)->val = 0;
 	(*phead)->next = NULL;
-	(*phead)->last = NULL;
+	
 	return (*phead);
 }
 
-void printlist(list* head)
+void printListNode(struct ListNode* head)
 {
 	if (head != NULL)
 	{
@@ -41,13 +41,13 @@ void printlist(list* head)
 
 	while (head != NULL)
 	{
-		printf("%d->", head->ele);
+		printf("%d->", head->val);
 		head = head->next;
 	}
 	printf("打印完成\n");
 }
 
-void pushback(list* head, E tele)
+void pushback(struct ListNode* head, E tval)
 {
 	if (head != NULL)
 	{
@@ -55,10 +55,10 @@ void pushback(list* head, E tele)
 			head = head->next;
 		else
 		{
-			head->next = malloc(sizeof(list));
-			head->next->last = head;
+			head->next = malloc(sizeof(struct ListNode));
+			
 			head->next->next = NULL;
-			head->next->ele = tele;
+			head->next->val = tval;
 			return 0;
 		}
 	}
@@ -71,14 +71,14 @@ void pushback(list* head, E tele)
 	{
 		head = head->next;
 	}
-	head->next = malloc(sizeof(list));
-	head->next->last = head;
+	head->next = malloc(sizeof(struct ListNode));
+	
 	head->next->next = NULL;
-	head->next->ele = tele;
+	head->next->val = tval;
 	return 0;
 }
 
-void pushhead(list* head, E tele)
+void pushhead(struct ListNode* head, E tval)
 {
 	if (head == NULL)
 	{
@@ -87,27 +87,27 @@ void pushhead(list* head, E tele)
 	}
 	if (head->next == NULL)
 	{
-		head->next = malloc(sizeof(list));
-		head->next->last = head;
-		head->next->ele = tele;
+		head->next = malloc(sizeof(struct ListNode));
+		
+		head->next->val = tval;
 		head->next->next = NULL;
 		return 0;
 	}
 	else
 	{
-		list* tp = head->next;
-		head->next = malloc(sizeof(list));
-		head->next->last = head;
-		head->next->ele = tele;
+		struct ListNode* tp = head->next;
+		head->next = malloc(sizeof(struct ListNode));
+	
+		head->next->val = tval;
 		head->next->next = tp;
-		head->next->next->last = head->next;
+
 	}
 }
 
-void delettail(list* head)
+void delettail(struct ListNode* head)
 {
 
-	list* tp = head;
+	struct ListNode* tp = head;
 	while (head->next != NULL)
 	{
 		tp = head;
@@ -117,7 +117,7 @@ void delettail(list* head)
 	free(head);
 }
 
-void delethead(list* head)
+void delethead(struct ListNode* head)
 {
 	if (head == NULL)
 	{
@@ -129,13 +129,13 @@ void delethead(list* head)
 		printf("链表为空\n");
 		return 0;
 	}
-	list* tp = head->next;
+	struct ListNode* tp = head->next;
 	head->next = head->next->next;
-	head->next->last = head;
+	
 	free(tp);
 }
 
-list* findone(list* head, E tele)
+struct ListNode* findone(struct ListNode* head, E tval)
 {
 	if (head == NULL)
 	{
@@ -149,7 +149,7 @@ list* findone(list* head, E tele)
 	}
 	while (head != NULL)
 	{
-		if (head->ele == tele)
+		if (head->val == tval)
 		{
 			return head;
 		}
@@ -164,15 +164,16 @@ list* findone(list* head, E tele)
 
 //int main()
 //{
-//	list* head = initlist();
+//	struct ListNode* head = NULL;
+//	initListNode(&head);
 //
-//	//printlist(head);
+//	printListNode(head);
 //
 //	pushback(head, 3);
 //	pushback(head, 4);
 //	pushback(head, 5);
 //	pushhead(head, 8);
-//	//printf("%p", findone(head,7));
+//	printListNode(head);
 //
 //
 //	return 0;

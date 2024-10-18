@@ -3,12 +3,13 @@
  // Definition for singly-linked list.
 #include<stdio.h>
 #include<stdlib.h>
+#include"单向链表.h"
 
 
-struct ListNode {
-	int val;
-	struct ListNode* next;
-};
+//struct ListNode {
+//	int val;
+//	struct ListNode* next;
+//};
 //废案（重新生成链表，不知为何当k很大时超时）
 //struct ListNode* rotateRight(struct ListNode* head, int k)
 //{
@@ -97,6 +98,54 @@ struct ListNode {
 
 
 //还是只通过了一半
+//struct ListNode* rotateRight(struct ListNode* head, int k)
+//{
+//	if (head == NULL)
+//	{
+//		return head;
+//	}
+//	if (head->next == NULL)
+//	{
+//		return head;
+//	}
+//	if (head->next->next == NULL)
+//	{
+//		return head;
+//	}
+//	if (k == 0)
+//	{
+//		return head;
+//	}
+//
+//	int num = 0;
+//	struct ListNode* mmm = head->next;
+//	struct ListNode* tail = head;
+//	while (mmm != NULL)
+//	{
+//		tail = mmm;
+//		mmm = mmm->next;
+//		num++;
+//	}
+//	tail->next = head;
+//	k = (k % num);
+//	k = num - k;
+//
+//
+//
+//	struct ListNode* tphead = head->next;
+//	struct ListNode* tpheadlast = head;
+//
+//	for (int i = 0; i < k; i++)
+//	{
+//		tpheadlast = tphead;
+//		tphead = tphead->next;
+//	}
+//	tpheadlast->next = NULL;
+//	head->next = tphead ;
+//	return tphead;
+//}
+
+//再次尝试,最终成功，头结点要存储数据(csdn误人子弟)
 struct ListNode* rotateRight(struct ListNode* head, int k)
 {
 	if (head == NULL)
@@ -107,18 +156,23 @@ struct ListNode* rotateRight(struct ListNode* head, int k)
 	{
 		return head;
 	}
-	if (head->next->next == NULL)
-	{
-		return head;
-	}
+	//if (head->next->next == NULL)
+	//{
+	//	return head;
+	//}
+	
 	if (k == 0)
 	{
 		return head;
 	}
 
+
+
+
+
 	int num = 0;
-	struct ListNode* mmm = head->next;
-	struct ListNode* tail = head;
+	struct ListNode* mmm = head;
+	struct ListNode* tail = NULL;
 	while (mmm != NULL)
 	{
 		tail = mmm;
@@ -129,24 +183,41 @@ struct ListNode* rotateRight(struct ListNode* head, int k)
 	k = (k % num);
 	k = num - k;
 
-
-
-	struct ListNode* tphead = head->next;
-	struct ListNode* tpheadlast = head;
-
-	for (int i = 0; i < k; i++)
+	//struct ListNode* orhead = head->next;
+	while (k--)
 	{
-		tpheadlast = tphead;
-		tphead = tphead->next;
+		head = head->next;
 	}
-	tpheadlast->next = NULL;
-	//head->next = tphead ;
-	return tphead;
+
+	struct ListNode* tail2 = head;
+	num -= 1;
+	while (num--)
+	{
+		tail2 = tail2->next;
+	}
+	tail2->next = NULL;
+	return head;
 }
+
 
  
 int main()
 {
+	struct ListNode* head = NULL;
+	initListNode(&head);
 
+	printListNode(head);
+	//pushback(head, 999);
+	pushback(head, 1);
+	pushback(head, 2);
+	pushback(head, 3);
+	pushback(head, 4);
+	pushback(head, 5);
+
+	printListNode(head);
+
+	printListNode(rotateRight(head,1));
+
+
+	return 0;
 }
-

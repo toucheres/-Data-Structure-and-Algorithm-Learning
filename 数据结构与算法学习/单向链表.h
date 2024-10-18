@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<malloc.h>
+//#include"µ•œÚ¡¥±Ì.c"
 #define E int
-typedef struct List
+struct ListNode
 {
-	struct List* last;
-	struct List* next;
-	E  ele;
-}list;
+	struct ListNode* next;
+	E  val;
+};
