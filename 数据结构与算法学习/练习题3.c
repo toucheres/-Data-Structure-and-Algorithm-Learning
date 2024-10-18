@@ -203,21 +203,17 @@ struct ListNode* rotateRight(struct ListNode* head, int k)
  
 int main()
 {
-	struct ListNode* head = NULL;
-	initListNode(&head);
 
-	printListNode(head);
-	//pushback(head, 999);
-	pushback(head, 1);
-	pushback(head, 2);
-	pushback(head, 3);
-	pushback(head, 4);
-	pushback(head, 5);
-
-	printListNode(head);
-
-	printListNode(rotateRight(head,1));
-
-
-	return 0;
 }
+
+//执行用时分布
+//0
+//ms
+//击败
+//100.00 %
+//复杂度分析
+//消耗内存分布
+//10.40
+//MB
+//击败
+//58.90 %
