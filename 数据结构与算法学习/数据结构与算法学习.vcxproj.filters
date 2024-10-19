@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="单向链表.c">
+    <ClCompile Include="singlyLinkedList.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="双向链表.c">
@@ -39,9 +39,12 @@
     <ClCompile Include="练习题4.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="计算n个节点最多二叉树数量.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="单向链表.h">
+    <ClInclude Include="singlyLinkedList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,16 +1,16 @@
-//https://leetcode.cn/problems/rotate-list/description/
+ï»¿//https://leetcode.cn/problems/rotate-list/description/
 
  // Definition for singly-linked list.
 #include<stdio.h>
 #include<stdlib.h>
-#include"µ¥ÏòÁ´±í.h"
+#include"singlyLinkedList.h"
 
 
 //struct ListNode {
 //	int val;
 //	struct ListNode* next;
 //};
-//·Ï°¸£¨ÖØĞÂÉú³ÉÁ´±í£¬²»ÖªÎªºÎµ±kºÜ´óÊ±³¬Ê±£©
+//åºŸæ¡ˆï¼ˆé‡æ–°ç”Ÿæˆé“¾è¡¨ï¼Œä¸çŸ¥ä¸ºä½•å½“kå¾ˆå¤§æ—¶è¶…æ—¶ï¼‰
 //struct ListNode* rotateRight(struct ListNode* head, int k)
 //{
 //	if (head == NULL)
@@ -74,30 +74,30 @@
 //	return start;
 //}
 
-//¸øÄãÒ»¸öÁ´±íµÄÍ·½Úµã head £¬Ğı×ªÁ´±í£¬½«Á´±íÃ¿¸ö½ÚµãÏòÓÒÒÆ¶¯ k ¸öÎ»ÖÃ¡£
+//ç»™ä½ ä¸€ä¸ªé“¾è¡¨çš„å¤´èŠ‚ç‚¹ head ï¼Œæ—‹è½¬é“¾è¡¨ï¼Œå°†é“¾è¡¨æ¯ä¸ªèŠ‚ç‚¹å‘å³ç§»åŠ¨ k ä¸ªä½ç½®ã€‚
 
 // 
 //
-//Ê¾Àı 1£º
+//ç¤ºä¾‹ 1ï¼š
 //
 //
-//ÊäÈë£ºhead = [1, 2, 3, 4, 5], k = 2
-//Êä³ö£º[4, 5, 1, 2, 3]
-//Ê¾Àı 2£º
+//è¾“å…¥ï¼šhead = [1, 2, 3, 4, 5], k = 2
+//è¾“å‡ºï¼š[4, 5, 1, 2, 3]
+//ç¤ºä¾‹ 2ï¼š
 //
 //
-//ÊäÈë£ºhead = [0, 1, 2], k = 4
-//Êä³ö£º[2, 0, 1]
+//è¾“å…¥ï¼šhead = [0, 1, 2], k = 4
+//è¾“å‡ºï¼š[2, 0, 1]
 //
 //
-//ÌáÊ¾£º
+//æç¤ºï¼š
 //
-//Á´±íÖĞ½ÚµãµÄÊıÄ¿ÔÚ·¶Î§[0, 500] ÄÚ
+//é“¾è¡¨ä¸­èŠ‚ç‚¹çš„æ•°ç›®åœ¨èŒƒå›´[0, 500] å†…
 //- 100 <= Node.val <= 100
 //0 <= k <= 2 * 109
 
 
-//»¹ÊÇÖ»Í¨¹ıÁËÒ»°ë
+//è¿˜æ˜¯åªé€šè¿‡äº†ä¸€åŠ
 //struct ListNode* rotateRight(struct ListNode* head, int k)
 //{
 //	if (head == NULL)
@@ -145,7 +145,7 @@
 //	return tphead;
 //}
 
-//ÔÙ´Î³¢ÊÔ,×îÖÕ³É¹¦£¬Í·½áµãÒª´æ´¢Êı¾İ(csdnÎóÈË×ÓµÜ)
+//å†æ¬¡å°è¯•,æœ€ç»ˆæˆåŠŸï¼Œå¤´ç»“ç‚¹è¦å­˜å‚¨æ•°æ®(csdnè¯¯äººå­å¼Ÿ)
 struct ListNode* rotateRight(struct ListNode* head, int k)
 {
 	if (head == NULL)
@@ -198,14 +198,14 @@ struct ListNode* rotateRight(struct ListNode* head, int k)
  
 
 
-//Ö´ĞĞÓÃÊ±·Ö²¼
+//æ‰§è¡Œç”¨æ—¶åˆ†å¸ƒ
 //0
 //ms
-//»÷°Ü
+//å‡»è´¥
 //100.00 %
-//¸´ÔÓ¶È·ÖÎö
-//ÏûºÄÄÚ´æ·Ö²¼
+//å¤æ‚åº¦åˆ†æ
+//æ¶ˆè€—å†…å­˜åˆ†å¸ƒ
 //10.40
 //MB
-//»÷°Ü
+//å‡»è´¥
 //58.90 %

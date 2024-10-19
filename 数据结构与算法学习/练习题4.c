@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#include"单向链表.h"
+#include"singlyLinkedList.h"
 
 int findKthPositive(int* arr, int arrSize, int k) 
 {
@@ -33,13 +33,14 @@ int findKthPositive(int* arr, int arrSize, int k)
 }
 //int main()
 //{
-//	int* t = malloc(sizeof(int)*5);
+//	int* t = malloc(sizeof(int) * 5);
 //	t[0] = 5;
 //	t[1] = 6;
 //	t[2] = 7;
 //	t[3] = 8;
 //	t[4] = 9;
-//	printf("%d", findKthPositive(t, 5, 9));	
+//	printf("%d", findKthPositive(t, 5, 9));
+//	free(t);
 //}
 //执行用时分布
 //0

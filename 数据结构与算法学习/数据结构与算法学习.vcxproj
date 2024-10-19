@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>ClangCL</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -104,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,13 +133,14 @@
     <ClCompile Include="练习题2.c" />
     <ClCompile Include="练习题3.c" />
     <ClCompile Include="练习题4.c" />
+    <ClCompile Include="计算n个节点最多二叉树数量.c" />
     <ClCompile Include="通过链表实现queue.c" />
     <ClCompile Include="通过顺序表实现queue.c" />
-    <ClCompile Include="单向链表.c" />
+    <ClCompile Include="singlyLinkedList.c" />
     <ClCompile Include="双向链表.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="单向链表.h" />
+    <ClInclude Include="singlyLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

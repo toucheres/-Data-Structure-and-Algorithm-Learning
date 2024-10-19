@@ -1,4 +1,4 @@
-#include"µ¥ÏòÁ´±í.h"
+ï»¿#include"singlyLinkedList.h"
 //#include<stdio.h>
 //#include<stdlib.h>
 //#define E int
@@ -29,14 +29,14 @@ void printListNode(struct ListNode* head)
 			head = head->next;
 		else
 		{
-			printf("Á´±íÎª¿Õ\n");
-			return 0;
+			printf("é“¾è¡¨ä¸ºç©º\n");
+			return ;
 		}
 	}
 	else
 	{
-		printf("Á´±íÖ¸ÕëÎª¿Õ\n");
-		return 0;
+		printf("é“¾è¡¨æŒ‡é’ˆä¸ºç©º\n");
+		return ;
 	}
 
 	while (head != NULL)
@@ -44,7 +44,7 @@ void printListNode(struct ListNode* head)
 		printf("%d->", head->val);
 		head = head->next;
 	}
-	printf("´òÓ¡Íê³É\n");
+	printf("æ‰“å°å®Œæˆ\n");
 }
 
 void pushback(struct ListNode* head, E tval)
@@ -59,13 +59,13 @@ void pushback(struct ListNode* head, E tval)
 			
 			head->next->next = NULL;
 			head->next->val = tval;
-			return 0;
+			return ;
 		}
 	}
 	else
 	{
-		printf("Á´±íÖ¸ÕëÎª¿Õ\n");
-		return 0;
+		printf("é“¾è¡¨æŒ‡é’ˆä¸ºç©º\n");
+		return ;
 	}
 	while (head->next != NULL)
 	{
@@ -75,15 +75,15 @@ void pushback(struct ListNode* head, E tval)
 	
 	head->next->next = NULL;
 	head->next->val = tval;
-	return 0;
+	return ;
 }
 
 void pushhead(struct ListNode* head, E tval)
 {
 	if (head == NULL)
 	{
-		printf("Á´±íÖ¸ÕëÎª¿Õ\n");
-		return 0;
+		printf("é“¾è¡¨æŒ‡é’ˆä¸ºç©º\n");
+		return ;
 	}
 	if (head->next == NULL)
 	{
@@ -91,7 +91,7 @@ void pushhead(struct ListNode* head, E tval)
 		
 		head->next->val = tval;
 		head->next->next = NULL;
-		return 0;
+		return ;
 	}
 	else
 	{
@@ -121,13 +121,13 @@ void delethead(struct ListNode* head)
 {
 	if (head == NULL)
 	{
-		printf("Á´±íÖ¸ÕëÎª¿Õ\n");
-		return 0;
+		printf("é“¾è¡¨æŒ‡é’ˆä¸ºç©º\n");
+		return ;
 	}
 	if (head->next == NULL)
 	{
-		printf("Á´±íÎª¿Õ\n");
-		return 0;
+		printf("é“¾è¡¨ä¸ºç©º\n");
+		return ;
 	}
 	struct ListNode* tp = head->next;
 	head->next = head->next->next;
@@ -139,12 +139,12 @@ struct ListNode* findone(struct ListNode* head, E tval)
 {
 	if (head == NULL)
 	{
-		printf("Á´±íÖ¸ÕëÎª¿Õ\n");
+		printf("é“¾è¡¨æŒ‡é’ˆä¸ºç©º\n");
 		return 0;
 	}
 	if (head->next == NULL)
 	{
-		printf("Á´±íÎª¿Õ\n");
+		printf("é“¾è¡¨ä¸ºç©º\n");
 		return 0;
 	}
 	while (head != NULL)
@@ -158,7 +158,7 @@ struct ListNode* findone(struct ListNode* head, E tval)
 			head = head->next;
 		}
 	}
-	printf("Î´ÕÒµ½\n");
+	printf("æœªæ‰¾åˆ°\n");
 	return NULL;
 }
 
