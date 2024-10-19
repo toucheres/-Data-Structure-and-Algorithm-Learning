@@ -160,15 +160,10 @@ struct ListNode* rotateRight(struct ListNode* head, int k)
 	//{
 	//	return head;
 	//}
-	
 	if (k == 0)
 	{
 		return head;
 	}
-
-
-
-
 
 	int num = 0;
 	struct ListNode* mmm = head;
@@ -201,10 +196,7 @@ struct ListNode* rotateRight(struct ListNode* head, int k)
 
 
  
-int main()
-{
 
-}
 
 //执行用时分布
 //0

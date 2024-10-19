@@ -130,6 +130,7 @@
     <ClCompile Include="练习题1.c" />
     <ClCompile Include="练习题2.c" />
     <ClCompile Include="练习题3.c" />
+    <ClCompile Include="练习题4.c" />
     <ClCompile Include="通过链表实现queue.c" />
     <ClCompile Include="通过顺序表实现queue.c" />
     <ClCompile Include="单向链表.c" />
