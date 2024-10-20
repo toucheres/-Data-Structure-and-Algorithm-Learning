@@ -1,10 +1,26 @@
+using namespace std;
 #include<stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
 #include <string.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <stddef.h>
-#include"MyQueueByLianBiao.h"
+//#include"MyQueueByLianBiao.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib>  // 对应 stdlib.h
+#include <cstring>  // 对应 string.h
+
+#include"singlyLinkedList.h"
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <queue>
+
+// 其他需要的库
 
 //节点的定义
 typedef struct TreeNode
@@ -50,9 +66,28 @@ void printTree_postOrder(Node root)
 }
 
 //层序遍历
-void printTree_postOrder(Node root,queue que)
+void printTree_tpOrder(Node root)
 {
-	
+	std::queue<Node> que;
+	que.push(root);
+	while (1)
+	{
+		if (que.empty())
+		{
+			return;
+		}
+		if (que.front()->left != NULL)
+		{
+			que.push(que.front()->left);
+			
+		}
+		if (que.front()->right != NULL)
+		{
+			que.push(que.front()->right);
+		}
+		printf("%c->", que.front()->ele);
+		que.pop();
+	}
 	
 }
 
@@ -82,8 +117,10 @@ int main()
 	c->left = NULL;
 	c->right = NULL;
 
-	queue que = malloc(sizeof(queue));
+
 	printTree_inOrder(a);
+	printf("\n");
+	printTree_tpOrder(a);
 
 
 }

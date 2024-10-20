@@ -42,7 +42,7 @@
     <ClCompile Include="计算n个节点最多二叉树数量.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="二叉树学习.c">
+    <ClCompile Include="二叉树学习.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
