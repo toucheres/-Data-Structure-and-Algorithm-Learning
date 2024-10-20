@@ -3,7 +3,7 @@
 //  Definition for singly-linked list.
 #include<stdio.h>
 #include<stdlib.h>
-  struct ListNode {
+ static struct ListNode {
      int val;
      struct ListNode *next;
   };

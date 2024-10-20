@@ -129,17 +129,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="二叉树学习.c" />
     <ClCompile Include="练习题1.c" />
     <ClCompile Include="练习题2.c" />
     <ClCompile Include="练习题3.c" />
     <ClCompile Include="练习题4.c" />
     <ClCompile Include="计算n个节点最多二叉树数量.c" />
-    <ClCompile Include="通过链表实现queue.c" />
-    <ClCompile Include="通过顺序表实现queue.c" />
+    <ClCompile Include="MyQueueByLianBiao.c" />
+    <ClCompile Include="MyQueueByShunXuBiao.c" />
     <ClCompile Include="singlyLinkedList.c" />
     <ClCompile Include="双向链表.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyQueueByLianBiao.h" />
     <ClInclude Include="singlyLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

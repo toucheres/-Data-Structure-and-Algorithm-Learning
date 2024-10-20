@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
 #define E int
 #define err 31423
 
@@ -13,7 +14,7 @@ struct Queue
 };
 
 typedef struct Queue* queue;
-_Bool initqueue(queue que, int sizeold)
+static _Bool initqueue(queue que, int sizeold)
 {
 	int size = sizeold + 1;
 	que->arr = malloc(sizeof(E) * size);
@@ -41,7 +42,7 @@ _Bool initqueue(queue que, int sizeold)
 //
 //}
 
-_Bool pushque(queue que, E ele)
+static _Bool pushque(queue que, E ele)
 {
 	int tempend = que->end;
 	que->end = (que->end + 1) % que->capacity;
@@ -55,7 +56,7 @@ _Bool pushque(queue que, E ele)
 	return 1;
 }
 
-E popque(queue que)
+static E popque(queue que)
 {
 	if (que->end == que->start)
 	{
@@ -67,7 +68,7 @@ E popque(queue que)
 	return tp;
 }
 
-void printque(queue que)
+static void printque(queue que)
 {
 	//int tempstart = que->start;
 	//int index;
