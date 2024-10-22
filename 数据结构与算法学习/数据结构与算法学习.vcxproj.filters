@@ -45,6 +45,9 @@
     <ClCompile Include="二叉树学习.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="容器学习.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="singlyLinkedList.h">

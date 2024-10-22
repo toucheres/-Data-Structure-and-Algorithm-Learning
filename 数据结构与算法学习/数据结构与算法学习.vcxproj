@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="容器学习.cpp" />
     <ClCompile Include="二叉树学习.cpp" />
     <ClCompile Include="练习题1.c" />
     <ClCompile Include="练习题2.c" />
