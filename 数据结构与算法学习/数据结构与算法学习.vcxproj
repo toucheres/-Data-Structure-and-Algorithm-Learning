@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="优先级队列.cpp" />
     <ClCompile Include="容器学习.cpp" />
     <ClCompile Include="二叉树学习.cpp" />
     <ClCompile Include="练习题1.c" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="MyQueueByLianBiao.h" />
     <ClInclude Include="singlyLinkedList.h" />
+    <ClInclude Include="优先级队列.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

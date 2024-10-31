@@ -48,12 +48,18 @@
     <ClCompile Include="容器学习.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="优先级队列.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="singlyLinkedList.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MyQueueByLianBiao.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="优先级队列.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

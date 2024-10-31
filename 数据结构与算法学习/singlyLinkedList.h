@@ -4,7 +4,7 @@
 #include<stdlib.h>
 #include<malloc.h>
 //#include"单向链表.c"
-#define E char
+#define E int
 struct ListNode
 {
 	struct ListNode* next;

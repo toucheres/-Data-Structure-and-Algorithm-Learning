@@ -26,6 +26,7 @@ typedef struct TreeNode
 	struct TreeNode* right;
 	bool leftFlag;//线索化标注
 	bool rightFlag;//线索化标注
+	int height; // 树高
 }*Node;
 
 //前序遍历打印Tree(递归)
@@ -48,7 +49,7 @@ void printTree_inOrder(Node root)
 		return;
 	}
 	printTree_inOrder(root->left);
-	printf("%c->", root->ele);
+	printf("%d->", root->ele);
 	printTree_inOrder(root->right);
 }
 //后序遍历打印Tree(递归)
@@ -115,6 +116,7 @@ Node creatNodeThread()
 	Node a = (Node)malloc(sizeof(struct TreeNode));
 	if (a)
 	{
+		a->height = 1;
 		a->ele = 0;
 		a->leftFlag = 0;
 		a->rightFlag = 0;
@@ -127,6 +129,26 @@ Node creatNodeThread()
 	}
 	return a;
 }
+
+Node createNode(E tele)
+{
+	Node a = (Node)malloc(sizeof(struct TreeNode));
+	if (a)
+	{
+		a->height = 1;
+		a->ele = tele;
+		a->leftFlag = 0;
+		a->rightFlag = 0;
+		a->left = NULL;
+		a->right = NULL;
+	}
+	else
+	{
+		printf("TreeNode生成失败\n");
+	}
+	return a;
+}
+
 void markThread(Node root, Node p)
 {
 	if (p && root)
@@ -340,57 +362,132 @@ void printThreadedTreeOrderly(Node root, int mode)
 		break;
 	}
 }
-
-
-int main()
+///csdn方法
+void Visit(Node root)
 {
-	//二叉树的建构
-	Node a = creatNodeThread();
-	Node b = creatNodeThread();
-	Node c = creatNodeThread();
-	Node d = creatNodeThread();
-	Node e = creatNodeThread();
-	Node f = creatNodeThread();
-	Node g = creatNodeThread();
-	Node h = creatNodeThread();
-
-	a->ele = 'A';
-	b->ele = 'B';
-	c->ele = 'C';
-	d->ele = 'D';
-	e->ele = 'E';
-	f->ele = 'F';
-	g->ele = 'G';
-	h->ele = 'H';
-
-
-	//			a
-	//		b		c
-	//  d	   e  f    g
-	// h
-	//
-	//
-	a->left = b;
-	a->right = c;
-	b->left = d;
-	b->right = e;
-	c->left = f;
-	c->right = g;
-	d->left = h;
-
-
-
-	
-	//线索化二叉树
-
-
-
-
-
-	markThreadOrderly(a, inOrder);
-	printf("\n");
-	printThreadedTreeOrderly(a, inOrder);
-
-
-	return 0;
+	printf("%c->", root->ele);
 }
+Node First(Node p) 
+{
+	while (p->leftFlag == false)
+	{
+		p = p->left;	//相当于找到树的最左下的结点
+	}
+	return p;
+}
+Node Next(Node p) {
+	if (p->rightFlag == 0) {
+		return First(p->right);
+	}
+	return p->right;		//rtag=1，直接返回后继线索rchild,因为线索化后，rchild就是线索了，指向后继结点
+}
+void Inorder(Node root) {
+	for (Node p = First(root); p != NULL; p = Next(p))
+		Visit(p);
+}
+
+
+
+int max(int a, int b) {
+	return a > b ? a : b;
+}
+
+int getHeight(Node root) {
+	if (root == NULL) return 0;
+	return root->height;
+}
+
+Node leftRotation(Node root) {  //左旋操作，实际上就是把左边结点拿上来
+	int i = 0;
+	Node newRoot = root->right;   //先得到左边结点
+	root->right = newRoot->left;   //将左边结点的左子树丢到原本根结点的右边去
+	newRoot->left = root;   //现在新的根结点左边就是原本的跟结点了
+
+	root->height = max(getHeight(root->right), getHeight(root->left)) + 1;
+	newRoot->height = max(getHeight(newRoot->right), getHeight(newRoot->left)) + 1;
+	return newRoot;
+}
+
+Node rightRotation(Node root) {
+	Node newRoot = root->left;
+	root->left = newRoot->right;
+	newRoot->right = root;
+
+	root->height = max(getHeight(root->right), getHeight(root->left)) + 1;
+	newRoot->height = max(getHeight(newRoot->right), getHeight(newRoot->left)) + 1;
+	return newRoot;
+}
+
+Node leftRightRotation(Node root) {
+	root->left = leftRotation(root->left);
+	return rightRotation(root);
+}
+
+Node rightLeftRotation(Node root) {
+	root->right = rightRotation(root->right);
+	return leftRotation(root);
+}
+
+
+
+//该程序有bug:当新插入节点使树不平衡，旋转后若根节点发生更改，仍返回的是旧根节点
+Node insert(Node root, E ele) {
+	if (root == NULL) {    //如果结点为NULL，说明找到了插入位置，直接创建新的就完事
+		root = createNode(ele);
+	}
+	else if (root->ele > ele) {   //和二叉搜索树一样，判断大小，该走哪边走哪边，直到找到对应插入位置
+		root->left = insert(root->left, ele);
+		if (getHeight(root->left) - getHeight(root->right) > 1) {   //插入完成之后，需要计算平衡因子，看看是否失衡
+			if (root->left->ele > ele) //接着需要判断一下是插入了左子树的左边还是右边，如果是左边那边说明是LL，如果是右边那说明是LR
+				root = rightRotation(root);   //LL型得到左旋之后的结果，得到新的根结点
+			else
+				root = leftRightRotation(root);    //LR型得到先左旋再右旋之后的结果，得到新的根结点
+		}
+	}
+	else if (root->ele < ele) {
+		root->right = insert(root->right, ele);
+		if (getHeight(root->left) - getHeight(root->right) < -1) {
+			if (root->right->ele < ele)
+				root = leftRotation(root);
+			else
+				root = rightLeftRotation(root);
+		}
+	}
+	//前面的操作完成之后记得更新一下树高度
+	root->height = max(getHeight(root->left), getHeight(root->right)) + 1;
+	return root;  //最后返回root到上一级
+}
+
+
+
+
+//
+//int main()
+//{
+//	Node root = creatNodeThread();
+//	root->ele = 15;
+//	printTree_inOrder(root);
+//	printf("\n");
+//	printTree_inOrder(insert(root, 12));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 20));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 11));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 13));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 14));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 77));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 45));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 121));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 19));
+//	printf("\n");
+//	printTree_inOrder(insert(root, 1));
+//	printf("\n");
+//
+//	return 0;
+//}
